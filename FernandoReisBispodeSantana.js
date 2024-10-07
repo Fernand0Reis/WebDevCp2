@@ -1,18 +1,27 @@
+function Primo(number) {
+    if (number < 2) return false; // Números menores que 2 não são primos
+    let n = 2;
+    while (n < number) {
+        if (number % n === 0) {
+            return false;
+        }
+        n++;
+    }
+    return true;
+}
 
-function primo(){
-    let numero = parseInt(document.getElementById('num').value);
+function verificar() {
+    let numero = parseInt(document.getElementById('numero').value);
     let resposta = document.getElementById('resposta');
-    let divisores=0;
-  
-    for(let count=1 ; count<=numero ; count++)
-     if(numero % count == 0)
-         divisores++;
-    
-    if(divisores==2)
-        resposta.innerHTML='É um número primo.';
-    else
-        resposta.innerHTML='Não é um número primo.';
-  }
+
+    if (isNaN(numero) || numero < 1) {
+        resposta.innerHTML = "Por favor, insira um número inteiro positivo.";
+        return;
+    }
+
+    const resultado = Primo(numero);
+    resposta.innerHTML = resultado ? `${numero} é um número primo.` : `${numero} não é um número primo.`;
+}
 
   function isPrimo(n) {
     if (n <= 1) return false;
