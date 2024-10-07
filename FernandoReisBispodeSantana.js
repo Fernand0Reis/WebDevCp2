@@ -1,6 +1,5 @@
 
 function primo(){
-    event.preventDefault();
     let numero = parseInt(document.getElementById('num').value);
     let resposta = document.getElementById('resposta');
     let divisores=0;
